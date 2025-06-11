@@ -240,37 +240,46 @@ The monorepo uses npm workspaces for dependency management:
 
 ### Vercel (Recommended)
 
-**Deploy Landing Page:**
+Both applications are **production-ready** for Vercel deployment with optimized configurations.
+
+#### Quick Deploy
+
+**Landing Page:**
 ```bash
 cd web
-vercel --prod
+npm run deploy
 ```
 
-**Deploy Main App:**
+**Main App:**
 ```bash
 cd app
-vercel --prod
+npm run deploy
 ```
 
-### Docker
+#### Vercel Dashboard Deploy
 
-```bash
-# Build landing page
-docker build -f web/Dockerfile -t blink-web .
+1. **Import Repository** to Vercel
+2. **Configure Build Settings**:
+   - **Web App**: Root Directory = `web`
+   - **Main App**: Root Directory = `app`
+   - **Install Command**: `npm install --legacy-peer-deps`
+3. **Set Environment Variables** (see `DEPLOYMENT.md`)
+4. **Deploy**
 
-# Build main app
-docker build -f app/Dockerfile -t blink-app .
-```
+### Production URLs
 
-### Environment Setup for Production
+- **Landing Page**: `https://your-web-domain.vercel.app`
+- **Main Application**: `https://your-app-domain.vercel.app`
 
-Ensure all required environment variables are set:
+### Environment Setup
 
-1. **Privy App ID** for authentication
-2. **API Keys** for KYC providers
-3. **Ethereum RPC** endpoints
-4. **EAS Contract** addresses
-5. **Lit Protocol** configuration
+**Required for Main App:**
+- `NEXT_PUBLIC_PRIVY_APP_ID` - Privy authentication
+- `NEXT_PUBLIC_ETHEREUM_RPC` - Ethereum RPC endpoint
+- `NEXT_PUBLIC_EAS_CONTRACT_ADDRESS` - EAS contract
+- API keys for KYC providers (Smile Identity, Onfido, Trulioo)
+
+**📖 Complete Guide**: See [`DEPLOYMENT.md`](./DEPLOYMENT.md) for detailed instructions
 
 ## 📊 Architecture Overview
 

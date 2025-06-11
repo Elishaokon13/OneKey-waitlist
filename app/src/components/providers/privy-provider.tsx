@@ -22,7 +22,7 @@ export function PrivyProvider({ children }: { children: React.ReactNode }) {
     <BasePrivyProvider
       appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID || "your-privy-app-id"}
       config={{
-        loginMethods: ['email', 'wallet', 'phone', 'google', 'twitter'],
+        loginMethods: ['email', 'wallet', 'sms', 'google', 'twitter'],
         appearance: {
           theme: 'dark',
           accentColor: '#6366F1',
