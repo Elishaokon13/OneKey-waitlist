@@ -4,7 +4,7 @@ import Container from "../global/container";
 import Icons from "../global/icons";
 import Images from "../global/images";
 import MagicCard from "../ui/magic-card";
-import Image from "next/image";
+import { ShieldCheckIcon, KeyIcon, LockIcon, RefreshCwIcon, UserCheckIcon, GlobeIcon } from "lucide-react";
 import { Ripple } from "../ui/ripple";
 import { SectionBadge } from "../ui/section-bade";
 
@@ -13,9 +13,9 @@ const Features = () => {
         <div className="flex flex-col items-center justify-center py-12 md:py-16 lg:py-24 w-full">
             <Container>
                 <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
-                    <SectionBadge title="Why VDEX?" />
+                    <SectionBadge title="Why Universal KYC?" />
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-medium !leading-snug mt-6">
-                        Fast, secure, and fully decentralized trading.
+                        Secure, private, and reusable identity verification.
                     </h2>
                 </div>
             </Container>
@@ -30,7 +30,7 @@ const Features = () => {
                             >
                                 <div className="bento-card flex items-center justify-center min-h-72">
                                     <span className="text-muted-foreground group-hover:text-foreground mx-auto relative">
-                                        <Icons.stars className="w-20 h-20" />
+                                        <ShieldCheckIcon className="w-20 h-20 text-blue-400" />
                                     </span>
                                     <Ripple />
                                 </div>
@@ -41,15 +41,18 @@ const Features = () => {
                                 style={{ backgroundColor: 'rgba(20, 20, 20, 0.15)' }}
                             >
                                 <div className="bento-card w-full flex-row gap-6">
-                                    <div className="w-full h-40">
-                                        <Images.analytics className="w-full h-full" />
+                                    <div className="w-full h-40 flex items-center justify-center">
+                                        <div className="relative">
+                                            <RefreshCwIcon className="w-16 h-16 text-purple-400 animate-spin animate-slow" />
+                                            <div className="absolute inset-0 bg-purple-400/20 rounded-full blur-xl"></div>
+                                        </div>
                                     </div>
                                     <div className="flex flex-col">
-                                        <h4 className="text-xl font-heading font-medium heading ">
-                                            Omnichain trading
+                                        <h4 className="text-xl font-heading font-medium heading">
+                                            One-Time Verification
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                            Trade across multiple blockchains from a single account without needing to bridge assets.
+                                            Complete KYC once and reuse verified attestations across all integrated platforms seamlessly.
                                         </p>
                                     </div>
                                 </div>
@@ -64,16 +67,16 @@ const Features = () => {
                                 style={{ backgroundColor: 'rgba(20, 20, 20, 0.15)' }}
                             >
                                 <div className="bento-card w-full flex-row gap-6">
-                                    <div className="w-full h-52 relative">
-                                        <Images.hash className="w-full h-full" />
-                                        <div className="w-40 h-40 rounded-full bg-secondary/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                                    <div className="w-full h-52 relative flex items-center justify-center">
+                                        <LockIcon className="w-24 h-24 text-green-400" />
+                                        <div className="w-40 h-40 rounded-full bg-green-400/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                                     </div>
                                     <div className="flex flex-col mt-auto">
                                         <h4 className="text-xl font-heading font-medium heading">
-                                            No KYC, No VPN Restrictions
+                                            Zero PII Storage
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                            Trade Freely, Anywhere, Without Barriers
+                                            Your personal data is encrypted client-side and never stored on our servers.
                                         </p>
                                     </div>
                                 </div>
@@ -87,13 +90,12 @@ const Features = () => {
                                     <div className="bento-card w-full relative items-center justify-center">
                                         <div className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                             <p className="text-base text-muted-foreground text-justify [mask-image:radial-gradient(50%_50%_at_50%_50%,#BAB3FF_0%,rgba(186,179,255,0)_90.69%)]">
-                                                VDEX is the decentralized exchange that delivers the best of both worlds — the speed and features of a CEX, with the security and freedom of a true DEX. Trade anytime, anywhere, with full self-custody and zero compromises.
+                                                Universal KYC Platform combines the security of blockchain technology with the privacy of client-side encryption. Complete verification once, maintain full control over your data, and prove your identity across any integrated service with zero PII exposure.
                                             </p>
                                         </div>
                                         <div className="w-full h-16 relative">
                                             <div className="w-20 h-20 rounded-full bg-secondary/10 blur-2xl z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                                <Icons.icon className="w-24 h-24 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80" />
-                                                <Images.circlePallete className="w-full h-full opacity-30" />
+                                                <ShieldCheckIcon className="w-12 h-12 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80 text-blue-400" />
                                             </div>
                                         </div>
                                     </div>
@@ -106,16 +108,16 @@ const Features = () => {
                             >
                                 <div className="bento-card w-full flex-row gap-6">
                                     <div className="flex flex-col mb-auto">
-                                        <h4 className="text-xl font-heading font-medium heading ">
-                                            Full Self-Custody
+                                        <h4 className="text-xl font-heading font-medium heading">
+                                            User-Controlled Access
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                            Your Funds, Your Control—Always
+                                            You decide who can access your data and what information to share.
                                         </p>
                                     </div>
-                                    <div className="w-full h-28 relative">
-                                        <Images.integration className="w-full h-full" />
-                                        <div className="w-28 h-28 rounded-full bg-secondary/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full"></div>
+                                    <div className="w-full h-28 relative flex items-center justify-center">
+                                        <KeyIcon className="w-16 h-16 text-purple-400" />
+                                        <div className="w-28 h-28 rounded-full bg-purple-400/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full"></div>
                                     </div>
                                 </div>
                             </MagicCard>
@@ -129,15 +131,15 @@ const Features = () => {
                                 style={{ backgroundColor: 'rgba(20, 20, 20, 0.15)' }}
                             >
                                 <div className="bento-card w-full flex-row gap-6">
-                                    <div className="w-full">
-                                        <Image src="/vdexhero.avif" alt="Bitcoin" width={96} height={96} className="w-full h-40 lg:h-auto" />
+                                    <div className="w-full flex items-center justify-center h-40 lg:h-auto">
+                                        <UserCheckIcon className="w-24 h-24 text-blue-400" />
                                     </div>
                                     <div className="flex flex-col mt-auto">
-                                        <h4 className="text-xl font-heading font-medium heading ">
-                                            Sustainable BTC Yield
+                                        <h4 className="text-xl font-heading font-medium heading">
+                                            Multi-Provider Support
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                            Earn Safely on Your Bitcoin.
+                                            Choose from Smile Identity, Onfido, Trulioo and more.
                                         </p>
                                     </div>
                                 </div>
@@ -148,15 +150,15 @@ const Features = () => {
                                 style={{ backgroundColor: 'rgba(20, 20, 20, 0.15)' }}
                             >
                                 <div className="bento-card w-full flex-row gap-6">
-                                    <div className="w-full">
-                                        <Images.ideation className="w-full h-40 lg:h-52" />
+                                    <div className="w-full flex items-center justify-center h-40 lg:h-52">
+                                        <GlobeIcon className="w-24 h-24 text-green-400" />
                                     </div>
                                     <div className="flex flex-col mt-auto">
-                                        <h4 className="text-xl font-heading font-medium heading ">
-                                            Sub-Millisecond Finality
+                                        <h4 className="text-xl font-heading font-medium heading">
+                                            Cross-Platform Integration
                                         </h4>
                                         <p className="text-sm md:text-base mt-2 text-muted-foreground">
-                                            Speed is critical in trading. Delayed execution can result in slippage, missed entries, or poor exits. VDEX achieves Sub-Millisecond Finality by bypassing blockchain confirmation delays.
+                                            Seamlessly integrate with any platform using our TypeScript SDK and REST API. Share verified identity across financial services, Web3 applications, and more with cryptographic proof and user consent.
                                         </p>
                                     </div>
                                 </div>
