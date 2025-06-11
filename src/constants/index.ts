@@ -1,4 +1,4 @@
-import { APP_NAME, APP_DOMAIN, APP_HOSTNAMES } from "./site";
+import { APP_NAME, APP_DOMAIN, APP_HOSTNAMES, KYC_PLATFORM_NAME, KYC_PLATFORM_TAGLINE, KYC_PLATFORM_DESCRIPTION } from "./site";
 import { inter, satoshi } from "./fonts";
 import { PERKS } from "./perks";
 import { PLANS } from "./plans";
@@ -10,6 +10,9 @@ export {
     APP_NAME,
     APP_DOMAIN,
     APP_HOSTNAMES,
+    KYC_PLATFORM_NAME,
+    KYC_PLATFORM_TAGLINE,
+    KYC_PLATFORM_DESCRIPTION,
     inter,
     satoshi,
     LIST_ITEM_VARIANTS,

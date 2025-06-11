@@ -49,12 +49,6 @@ Based on the detailed architecture document, the key technical and business chal
 ### Phase 1: Core Infrastructure & Authentication
 - [ ] **Task 1.1**: Set up development environment and project structure
   - Success Criteria: Development environment configured with all necessary tools and dependencies
-- [ ] **Task 1.2**: Implement Privy authentication integration with smart contract wallet
-  - Success Criteria: Users can authenticate via email/phone/social and get AA wallet created
-- [ ] **Task 1.3**: Implement Passkey fallback authentication (WebAuthn)
-  - Success Criteria: Users can authenticate using device-bound Passkeys as alternative to Privy
-- [ ] **Task 1.4**: Create client-side encryption module (AES-256-GCM)
-  - Success Criteria: SDK can encrypt/decrypt data using user's wallet keys
 
 ### Phase 2: KYC Provider Integration
 - [ ] **Task 2.1**: Build multi-provider KYC adapter architecture
@@ -108,12 +102,14 @@ Based on the detailed architecture document, the key technical and business chal
 
 ## Project Status Board
 
-### Current Sprint - Detailed Planning Phase
+### Current Sprint - Core Infrastructure & Authentication
 - [x] Analyze product requirements document
 - [x] Review detailed architecture specification
-- [ ] Define technology stack and dependencies
-- [ ] Set up development environment
-- [ ] Create project structure and boilerplate
+- [x] Define technology stack and dependencies
+- [🔄] **Task 1.1**: Set up development environment and project structure
+  - **IN PROGRESS**: Reviewing existing codebase and transforming it for KYC platform
+  - **Current**: Found existing Next.js VDEX landing page - transforming to KYC platform
+  - Success Criteria: Development environment configured with all necessary tools and dependencies
 
 ### Technology Stack (Based on Architecture):
 - **Frontend**: React, TypeScript, Tailwind CSS

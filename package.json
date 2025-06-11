@@ -1,7 +1,8 @@
 {
-  "name": "vdex",
+  "name": "universal-kyc-platform",
   "version": "0.1.0",
   "private": true,
+  "description": "One-Time KYC with Reusable Verifiable Attestations - Privacy-preserving identity verification platform",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -25,6 +26,12 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
+    "@privy-io/react-auth": "^1.89.0",
+    "@privy-io/wagmi": "^0.2.13",
+    "@ethereum-attestation-service/eas-sdk": "^2.8.0",
+    "@lit-protocol/lit-node-client": "^6.9.0",
+    "@lit-protocol/constants": "^6.9.0",
+    "@lit-protocol/auth-helpers": "^6.9.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.2.0",
@@ -46,12 +53,17 @@
     "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss-animate": "^1.0.7",
     "usehooks-ts": "^3.1.0",
-    "zod": "^3.23.8"
+    "viem": "^2.21.48",
+    "wagmi": "^2.12.31",
+    "zod": "^3.23.8",
+    "crypto-js": "^4.2.0",
+    "axios": "^1.7.7"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/crypto-js": "^4.2.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
