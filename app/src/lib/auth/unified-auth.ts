@@ -101,16 +101,27 @@ export class UnifiedAuthManager {
     this.preferences = { ...this.preferences, ...newPreferences }
     
     if (this.preferences.rememberChoice) {
-      localStorage.setItem('auth-preferences', JSON.stringify(this.preferences))
+      try {
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem('auth-preferences', JSON.stringify(this.preferences))
+        }
+      } catch (error) {
+        console.error('Failed to save preferences to localStorage:', error)
+      }
     }
 
     // Create audit log
     if (this.currentUser) {
-      await databaseService.createAuditLog({
-        userId: this.currentUser.id,
-        action: 'auth_preferences_updated',
-        details: newPreferences,
-      })
+      try {
+        await databaseService.createAuditLog({
+          userId: this.currentUser.id,
+          action: 'auth_preferences_updated',
+          details: newPreferences,
+        })
+      } catch (error) {
+        console.error('Failed to create audit log for preferences update:', error)
+        // Don't throw, this is not critical
+      }
     }
   }
 
@@ -163,12 +174,14 @@ export class UnifiedAuthManager {
     try {
       if (method === 'privy') {
         return await this.authenticateWithPrivy(options?.email)
-      } else if (method === 'passkey') {
-        if (!options?.username || !options?.displayName) {
-          throw new Error('Username and display name required for passkey registration')
-        }
-        return await this.registerWithPasskey(options.username, options.displayName)
+          } else if (method === 'passkey') {
+      if (!options?.username || !options?.displayName) {
+        const error = new Error('Username and display name required for passkey registration')
+        console.error('Registration failed:', error)
+        throw error
       }
+      return await this.registerWithPasskey(options.username, options.displayName)
+    }
 
       throw new Error('Invalid authentication method')
     } catch (error) {
@@ -336,7 +349,13 @@ export class UnifiedAuthManager {
           allowFallback: true,
           rememberChoice: true,
         }
-        localStorage.removeItem('auth-preferences')
+        try {
+          if (typeof localStorage !== 'undefined') {
+            localStorage.removeItem('auth-preferences')
+          }
+        } catch (error) {
+          console.error('Failed to remove preferences from localStorage:', error)
+        }
       }
 
       console.log('Unified sign out successful')
@@ -500,9 +519,11 @@ export class UnifiedAuthManager {
 
   private loadPreferences(): void {
     try {
-      const stored = localStorage.getItem('auth-preferences')
-      if (stored) {
-        this.preferences = { ...this.preferences, ...JSON.parse(stored) }
+      if (typeof localStorage !== 'undefined') {
+        const stored = localStorage.getItem('auth-preferences')
+        if (stored) {
+          this.preferences = { ...this.preferences, ...JSON.parse(stored) }
+        }
       }
     } catch (error) {
       console.error('Failed to load auth preferences:', error)
