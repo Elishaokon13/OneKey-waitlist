@@ -5,7 +5,7 @@
 
 import { databaseService } from '@/lib/database'
 import { unifiedAuthManager } from '@/lib/auth/unified-auth'
-import type {
+import {
   VerificationLevel,
   VerificationStatus,
   VerificationSession,
