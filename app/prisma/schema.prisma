@@ -1,0 +1,114 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// User sessions and wallet associations (no PII)
+model User {
+  id        String   @id @default(cuid())
+  walletAddress String @unique
+  privyUserId   String? @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relationships
+  sessions     Session[]
+  attestations AttestationReference[]
+  accessGrants AccessGrant[]
+  
+  @@map("users")
+}
+
+// Session management for authentication
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  sessionToken String @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("sessions")
+}
+
+// References to attestations (no actual PII stored)
+model AttestationReference {
+  id            String   @id @default(cuid())
+  userId        String
+  attestationUID String  @unique // EAS attestation UID
+  schemaUID     String   // EAS schema UID
+  provider      String   // KYC provider name (e.g., "smile-identity")
+  status        String // PENDING, VERIFIED, FAILED, EXPIRED, REVOKED
+  dataHash      String   // Hash of encrypted data for integrity
+  storageHash   String?  // IPFS/Arweave hash where encrypted data is stored
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  expiresAt     DateTime?
+  
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessGrants AccessGrant[]
+  
+  @@map("attestation_references")
+}
+
+// Access grants for cross-platform sharing
+model AccessGrant {
+  id              String   @id @default(cuid())
+  userId          String
+  attestationId   String
+  platformId      String   // Identifier for the requesting platform
+  platformName    String   // Human-readable platform name
+  grantedScopes   String   // JSON array of granted data scopes
+  accessToken     String   @unique // Token for accessing the data
+  expiresAt       DateTime
+  createdAt       DateTime @default(now())
+  lastAccessedAt  DateTime?
+  accessCount     Int      @default(0)
+  isRevoked       Boolean  @default(false)
+  
+  // Relationships
+  user        User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  attestation AttestationReference @relation(fields: [attestationId], references: [id], onDelete: Cascade)
+  
+  @@map("access_grants")
+}
+
+// Audit log for compliance and monitoring (no PII)
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?  // Optional - some events might not be user-specific
+  action    String   // Action performed (e.g., "kyc_initiated", "attestation_created")
+  resource  String?  // Resource affected (e.g., attestation ID)
+  metadata  String?  // JSON metadata (no PII)
+  ipAddress String?  // For security monitoring
+  userAgent String?  // For security monitoring
+  createdAt DateTime @default(now())
+  
+  @@map("audit_logs")
+}
+
+// System configuration and feature flags
+model SystemConfig {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  category  String   // e.g., "kyc_providers", "security", "features"
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("system_config")
+}
+
+// Note: SQLite doesn't support enums, so we use strings with validation in the application layer
+// Valid AttestationStatus values: PENDING, VERIFIED, FAILED, EXPIRED, REVOKED 
