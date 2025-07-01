@@ -143,10 +143,10 @@ export default function WaitlistModal({ children }: WaitlistModalProps) {
       {/* Success Message */}
       <div className="space-y-3">
         <h3 className="text-2xl font-bold bg-gradient-to-b from-neutral-700 to-neutral-900 bg-clip-text text-transparent dark:from-neutral-50 dark:to-neutral-300 font-poppins">
-          You're on the list!
+          You&apos;re on the list!
         </h3>
         <p className="text-black/60 dark:text-gray-400 text-lg max-w-sm mx-auto leading-relaxed">
-          Thanks for joining the OneKey waitlist. We'll notify you as soon as we launch our revolutionary identity verification platform.
+          Thanks for joining the OneKey waitlist. We&apos;ll notify you as soon as we launch our revolutionary identity verification platform.
         </p>
       </div>
 
