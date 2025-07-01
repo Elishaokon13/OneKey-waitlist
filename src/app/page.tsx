@@ -7,7 +7,7 @@ import { NavBar } from "@/components/navbar";
 const Page = () => {
   return (
     <>
-      <div className="font ">
+      <div className="font-space-grotesk">
         <NavBar />
         <main className="mt-10">
           <HeroAi />
