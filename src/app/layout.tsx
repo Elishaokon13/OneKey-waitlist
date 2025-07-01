@@ -145,7 +145,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main className="sm:container mx-auto w-[85vw] h-auto">
-            <ReduxProvider>{children}</ReduxProvider>
+            {children}
           </main>
           <Toaster />
         </ThemeProvider>
