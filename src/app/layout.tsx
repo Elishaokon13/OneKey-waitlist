@@ -63,7 +63,7 @@ export const metadata: Metadata = {
       url: siteConfig.author.url,
     },
   ],
-  creator: "Def",
+  creator: "Defi",
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
