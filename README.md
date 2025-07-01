@@ -111,7 +111,9 @@ The site uses a cohesive design system with:
 - **Responsive**: Mobile-first design approach
 
 ### Waitlist Signup
-- **Email Collection**: Simple form with validation
+- **Email Collection**: Modal popup with validation
+- **Database Storage**: Supabase backend for production-ready storage
+- **Duplicate Prevention**: Automatic email deduplication
 - **Success States**: Confirmation message with animations
 - **Error Handling**: User-friendly error messages
 - **Privacy Notice**: Clear data usage information
