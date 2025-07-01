@@ -17,7 +17,7 @@ export const siteConfig = {
     },
     author: {
       name: "DefiDevrel",
-      url: "https://defidevrel.com",
+      url: "https://defidevrel.xyz",
     },
     keywords: [
       "OneKey",
