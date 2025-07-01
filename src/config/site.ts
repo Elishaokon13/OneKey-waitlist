@@ -4,7 +4,7 @@ export const siteConfig = {
     ogImage: {
       url: "https://OneKey.arihant.us/og.png",
   
-      alt: "OneKey - A next-gen freelancing platform combining community engagement, career growth, and opportunities for developers",
+      alt: "OneKey - Secure identity verification platform with zero PII storage",
     },
       description:
     "Secure identity verification platform with zero PII storage. Complete KYC once, use it everywhere.",
