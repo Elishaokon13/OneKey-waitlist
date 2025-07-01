@@ -64,8 +64,8 @@ The user wants to simplify the current OneKey codebase which currently includes:
 - [x] Audit all current files and components  
 - [x] Identify files to remove vs keep
 - [x] Plan simplified site structure
-- [ ] Design waitlist component requirements
-- [ ] Plan new site configuration updates
+- [x] Design waitlist component requirements
+- [x] Plan new site configuration updates
 
 ### Phase 2: Remove Unnecessary Features  
 - [ ] **2.1**: Remove all `/(lol)/` subpages and layout
@@ -100,8 +100,8 @@ The user wants to simplify the current OneKey codebase which currently includes:
 ### Planning Phase
 - [x] **Complete file audit** - Identified all files to remove/keep
 - [x] **Plan removal strategy** - Organized into logical phases
-- [ ] **Design waitlist component** - Plan email collection form
-- [ ] **Plan configuration updates** - Site config, navigation updates
+- [x] **Design waitlist component** - Simple email collection with success state
+- [x] **Plan configuration updates** - Site config, navigation updates
 
 ### Implementation Phases (Pending)
 - [ ] **File Removal Phase** (Tasks 2.1-2.6)
@@ -128,6 +128,15 @@ The user wants to simplify the current OneKey codebase which currently includes:
 - Consider using form submission to a simple service (Netlify forms, etc.) or local storage for demo
 - Keep the same design aesthetic as current hero section
 - Maintain dark/light theme support
+
+**Waitlist Component Design:**
+- Simple email input field with submit button
+- Basic email validation (format check)
+- Success state showing "Thanks! You're on the waitlist"
+- Error handling for invalid emails
+- Integrate with hero section or create separate section
+- Use existing button/input components from UI library
+- Match current gradient/styling aesthetic
 
 ## Lessons
 
