@@ -16,7 +16,7 @@ export const siteConfig = {
       instagram: "https://www.instagram.com/defidevrel", // Update with your actual Instagram profile
     },
     author: {
-      name: "Elisha Okon",
+      name: "",
       url: "https://elishaokon.com",
     },
     keywords: [
