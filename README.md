@@ -54,7 +54,11 @@ cd Blink-Protocol-web
 # Install dependencies
 npm install
 
-# Start development server
+# Setup environment (creates .env.local template)
+chmod +x scripts/setup-env.sh && ./scripts/setup-env.sh
+
+# Configure Supabase (see Supabase Database Setup section below)
+# Then start development server
 npm run dev
 ```
 
