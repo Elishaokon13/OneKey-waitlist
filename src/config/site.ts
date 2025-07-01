@@ -1,8 +1,8 @@
 export const siteConfig = {
     name: "OneKey",
-    url: "https://OneKey.arihant.us",
+    url: "https://one-key-waitlist.vercel.app",
     ogImage: {
-      url: "https://OneKey.arihant.us/og.png",
+      url: "https://one-key-waitlist.vercel.app/og.png",
   
       alt: "OneKey - Secure identity verification platform with zero PII storage",
     },
