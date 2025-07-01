@@ -2,7 +2,7 @@
 
 > **Verify Once, Use Everywhere** - Secure identity verification with zero PII storage and user-controlled access.
 
-![OneKey Platform](https://onekey.arihant.us/og.png)
+![OneKey Platform](https://one-key-waitlist.vercel.app/og.png)
 
 ## 🚀 Overview
 
@@ -139,8 +139,8 @@ Edit `src/config/site.ts` to update:
 export const siteConfig = {
   name: "OneKey",
   description: "Secure identity verification platform...",
-  url: "https://onekey.arihant.us",
-  ogImage: "https://onekey.arihant.us/og.png",
+  url: "https://one-key-waitlist.vercel.app",
+  ogImage: "https://one-key-waitlist.vercel.app/og.png",
   links: {
     twitter: "https://x.com/defidevrel",
     github: "https://github.com/elishaokon13"
