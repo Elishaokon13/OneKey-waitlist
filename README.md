@@ -129,24 +129,6 @@ The site uses a cohesive design system with:
 - **Loading States**: Proper feedback for user actions
 - **Accessibility**: WCAG compliant design
 
-## 🔧 Configuration
-
-### Site Configuration
-
-Edit `src/config/site.ts` to update:
-
-```typescript
-export const siteConfig = {
-  name: "OneKey",
-  description: "Secure identity verification platform...",
-  url: "https://one-key-waitlist.vercel.app",
-  ogImage: "https://one-key-waitlist.vercel.app/og.png",
-  links: {
-    twitter: "https://x.com/defidevrel",
-    github: "https://github.com/elishaokon13"
-  }
-}
-```
 
 ### Environment Variables
 
