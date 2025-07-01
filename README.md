@@ -225,13 +225,4 @@ npm run build
 vercel --prod
 ```
 
-## 🙏 Acknowledgments
-
-- Design inspiration from modern SaaS platforms
-- UI components built with Radix UI
-- Icons provided by Lucide
-- Fonts from Google Fonts
-
----
-
 **OneKey** - Building the future of privacy-first identity verification. 🚀
