@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, CheckCircle, Loader2, X } from "lucide-react";
+import { waitlistService } from "@/lib/supabase";
 import {
   Dialog,
   DialogContent,
