@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { Particles } from "../ui/particles";
+import { Particles } from "./particles";
 
 import { cn } from "@/functions";
 
