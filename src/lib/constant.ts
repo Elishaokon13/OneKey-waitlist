@@ -212,7 +212,7 @@ export const socialMediaLinks = [
 
   {
     icon: TwitterLogo,
-    link: "https://x.com/arihantcodes",
+    link: "https://x.com/defidevrel",
   },
   {
     icon: LinkedInLogo,
