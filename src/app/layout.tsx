@@ -34,6 +34,11 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
+  icons: {
+    icon: "/growify.svg",
+    shortcut: "/growify.svg",
+    apple: "/growify.svg",
+  },
   keywords: [
     "linkedin",
     "OneKey",
