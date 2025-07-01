@@ -16,42 +16,70 @@ export interface WaitlistEntry {
 export const waitlistService = {
   async addEmail(email: string, userAgent?: string): Promise<{ success: boolean; error?: string }> {
     try {
-      const { data: existing } = await supabase
+      // First, normalize the email to lowercase for consistent checking
+      const normalizedEmail = email.toLowerCase().trim()
+      
+      // Check if email already exists using maybeSingle() to avoid errors when no record found
+      console.log('🔍 Checking for existing email:', normalizedEmail)
+      const { data: existing, error: checkError } = await supabase
         .from('waitlist')
         .select('email')
-        .eq('email', email)
-        .single()
+        .eq('email', normalizedEmail)
+        .maybeSingle()
+
+      if (checkError) {
+        console.error('Error checking for existing email:', checkError)
+        return { 
+          success: false, 
+          error: 'Failed to verify email' 
+        }
+      }
 
       if (existing) {
+        console.log('❌ Email already exists:', normalizedEmail)
         return { 
           success: false, 
           error: 'Email already registered' 
         }
       }
 
-      const { error } = await supabase
+      console.log('✅ Email is new, proceeding with insert:', normalizedEmail)
+
+      // Insert new email
+      const { error: insertError } = await supabase
         .from('waitlist')
         .insert({
-          email,
+          email: normalizedEmail,
           timestamp: new Date().toISOString(),
           user_agent: userAgent || 'Unknown'
         })
 
-      if (error) {
+      if (insertError) {
         console.error('Supabase insert error:', {
-          message: error.message,
-          details: error.details,
-          hint: error.hint,
-          code: error.code,
-          full_error: JSON.stringify(error, null, 2)
+          message: insertError.message,
+          details: insertError.details,
+          hint: insertError.hint,
+          code: insertError.code,
+          full_error: JSON.stringify(insertError, null, 2)
         })
+        
+        // Check if it's a unique constraint violation (duplicate email at DB level)
+        if (insertError.code === '23505') {
+          return { 
+            success: false, 
+            error: 'Email already registered' 
+          }
+        }
+        
         return { 
           success: false, 
           error: 'Failed to save email' 
         }
       }
 
+      console.log('🎉 Email successfully saved to database:', normalizedEmail)
       return { success: true }
+      
     } catch (error) {
       console.error('Waitlist service error:', error)
       return { 
