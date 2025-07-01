@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage.url],
-    creator: "@arihantcodes",
+    creator: "@defidevrel",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
   robots: {
