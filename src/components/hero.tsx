@@ -6,6 +6,7 @@ import IntegrationBox from "./ui/integrationBox";
 
 import { Button } from "./ui/button";
 import { LogIn } from "lucide-react";
+import WaitlistModal from "./waitlist";
 
 export default function Hero() {
   const textVariants = {
