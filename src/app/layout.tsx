@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Reddit_Sans as GeistSans, Poppins, Inter } from "next/font/google";
+import { Reddit_Sans as GeistSans, Poppins, Inter, Space_Grotesk } from "next/font/google";
 import {} from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
