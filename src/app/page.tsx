@@ -12,6 +12,9 @@ const Page = () => {
         <NavBar />
         <main className="mt-10">
           <HeroAi />
+          <section className="py-20">
+            <WaitlistSignup />
+          </section>
           <Footer />
         </main>
       </div>
