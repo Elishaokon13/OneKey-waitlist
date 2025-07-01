@@ -148,7 +148,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${poppins.variable} ${inter.variable} ${geistSans.variable} antialiased bg-background font-sans`}
+        className={`${poppins.variable} ${inter.variable} ${geistSans.variable} ${spaceGrotesk.variable} antialiased bg-background font-sans`}
       >
         <ThemeProvider
           attribute="class"
