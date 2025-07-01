@@ -6,8 +6,8 @@ export const siteConfig = {
   
       alt: "OneKey - A next-gen freelancing platform combining community engagement, career growth, and opportunities for developers",
     },
-    description:
-      "A next-gen freelancing platform combining community engagement, career growth, and opportunities for developers",
+      description:
+    "Secure identity verification platform with zero PII storage. Complete KYC once, use it everywhere.",
     links: {
       twitter: "https://x.com/arihantcodes",
       github: "https://github.com/arihantcodes",
