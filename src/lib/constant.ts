@@ -216,6 +216,6 @@ export const socialMediaLinks = [
   },
   {
     icon: LinkedInLogo,
-    link: "https://www.linkedin.com/in/arihantcodes",
+    link: "https://www.linkedin.com/in/elishaokon13",
   },
 ];
