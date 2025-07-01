@@ -79,8 +79,8 @@ export default function Hero() {
                 delay: 0.6,
               }}
             >
-              <Link href="/signup" className="">
-                <Button className=" font-semibold font-poppins">Verify Now<LogIn/></Button>
+              <Link href="#waitlist" className="">
+                <Button className=" font-semibold font-poppins">Join Waitlist<LogIn/></Button>
               </Link>
             </motion.div>
           </div>
