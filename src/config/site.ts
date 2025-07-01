@@ -16,8 +16,8 @@ export const siteConfig = {
       instagram: "https://www.instagram.com/defidevrel", // Update with your actual Instagram profile
     },
     author: {
-      name: "Arihant Jain",
-      url: "https://arihant.us",
+      name: "Elisha Okon",
+      url: "https://elishaokon.com",
     },
     keywords: [
       "OneKey",
