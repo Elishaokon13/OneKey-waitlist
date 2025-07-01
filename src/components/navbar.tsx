@@ -87,7 +87,6 @@ export function NavBar() {
             </div>
 
             <div className="hidden items-center space-x-4 lg:flex">
-              <AuthButton />
               <ModeToggle />
             </div>
             <div className="lg:hidden">
