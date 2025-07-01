@@ -35,7 +35,7 @@ kyc-api-mvp/
 
 ## 👥 Team Roles & Responsibilities
 
-<details><summary><strong>Dev 1 — API Lead</strong></summary>
+<details><summary><strong>DefiDevrel — API Lead</strong></summary>
 
 - [ ] Set up REST API boilerplate (Express + TypeScript)
 - [ ] `POST /initiate-kyc`
@@ -46,7 +46,7 @@ kyc-api-mvp/
 
 </details>
 
-<details><summary><strong>Dev 2 — Encryption + Storage</strong></summary>
+<details><summary><strong>Seyi — Encryption + Storage</strong></summary>
 
 - [ ] AES-256-GCM encryption of KYC metadata
 - [ ] Encrypt AES key with user's public key (Privy/Passkey)
@@ -56,7 +56,7 @@ kyc-api-mvp/
 
 </details>
 
-<details><summary><strong>Dev 3 — EAS + Lit Protocol</strong></summary>
+<details><summary><strong>Israel — EAS + Lit Protocol</strong></summary>
 
 - [ ] Define attestation schema (`kyc_passed`, `country`, `data_hash`)
 - [ ] Create EAS attestations via SDK
@@ -65,7 +65,7 @@ kyc-api-mvp/
 
 </details>
 
-<details><summary><strong>Dev 4 — Auth + DevOps + QA</strong></summary>
+<details><summary><strong>Bright — Auth + DevOps + QA</strong></summary>
 
 - [ ] Integrate Privy or Passkey auth
 - [ ] Generate user wallet + handle JWT sessions
@@ -75,7 +75,7 @@ kyc-api-mvp/
 
 </details>
 
-<details><summary><strong>Designer + Dev — Frontend (React)</strong></summary>
+<details><summary><strong>Dayo + Defidevrel — Frontend (React)</strong></summary>
 
 - [ ] Upload KYC form (doc, selfie)
 - [ ] View KYC status + attestation
