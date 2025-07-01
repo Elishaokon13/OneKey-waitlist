@@ -10,8 +10,8 @@ export const siteConfig = {
     "Secure identity verification platform with zero PII storage. Complete KYC once, use it everywhere.",
     links: {
       twitter: "https://x.com/defidevrel",
-      github: "https://github.com/arihantcodes",
-      linkedin: "https://www.linkedin.com/in/arihantcodes", // Update with your actual LinkedIn profile
+      github: "https://github.com/elishaokon13",
+      linkedin: "https://www.linkedin.com/in/elishaokon13", // Update with your actual LinkedIn profile
       // Update if you have a Facebook page
       instagram: "https://www.instagram.com/arihantjainn18", // Update with your actual Instagram profile
     },
