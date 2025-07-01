@@ -5,7 +5,7 @@ import {} from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import Script from "next/script";
-import ReduxProvider from "@/store/ReduxProvider";
+
 import { Toaster } from "@/components/ui/toaster"
 
 
