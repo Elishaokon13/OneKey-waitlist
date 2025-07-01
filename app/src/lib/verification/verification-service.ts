@@ -5,6 +5,7 @@
 
 import { databaseService } from '@/lib/database'
 import { unifiedAuthManager } from '@/lib/auth/unified-auth'
+import { documentProcessor } from './document-processor'
 import {
   VerificationLevel,
   VerificationStatus,
@@ -727,27 +728,136 @@ export class VerificationService {
   }
 
   private async processDocument(document: DocumentUpload, file: File): Promise<DocumentUpload> {
-    // Simulate document processing with OCR/AI
-    const confidence = Math.floor(Math.random() * 30) + 70 // 70-100%
+    try {
+      console.log(`Processing document ${document.id} with real OCR and validation`)
+      
+      // Use document processor for real OCR and validation
+      const processingResult = await documentProcessor.processDocument(file, document.type)
+      
+      // Convert extracted fields to DocumentData format
+      const extractedData: DocumentData = this.convertExtractedFieldsToDocumentData(
+        processingResult.extractedFields,
+        document.type
+      )
+
+      // Determine status based on validation result
+      const isValid = processingResult.validation.isValid
+      const confidence = processingResult.validation.confidence
+
+      console.log(`Document processing completed: ${isValid ? 'verified' : 'rejected'} (${confidence}% confidence)`)
+      console.log('Quality metrics:', processingResult.quality)
+      console.log('Security features detected:', processingResult.validation.securityFeatures.filter(f => f.detected).length)
+
+      return {
+        ...document,
+        status: isValid ? 'verified' : 'rejected',
+        verifiedAt: isValid ? new Date() : undefined,
+        extractedData: {
+          ...extractedData,
+          // Include additional processing metadata
+          _processingMetadata: {
+            ocr: processingResult.ocr,
+            quality: processingResult.quality,
+            validation: processingResult.validation,
+            enhancedImage: processingResult.enhancedImage,
+          },
+        },
+        confidence,
+        rejectionReason: !isValid ? this.formatRejectionReason(processingResult.validation) : undefined,
+      }
+    } catch (error) {
+      console.error('Document processing failed:', error)
+      
+      return {
+        ...document,
+        status: 'rejected',
+        confidence: 0,
+        rejectionReason: error instanceof Error ? error.message : 'Processing failed',
+      }
+    }
+  }
+
+  /**
+   * Convert extracted fields to DocumentData format
+   */
+  private convertExtractedFieldsToDocumentData(extractedFields: any, documentType: DocumentType): DocumentData {
+    const data: DocumentData = {}
+
+    // Map common fields
+    if (extractedFields.documentNumber?.value) {
+      data.documentNumber = extractedFields.documentNumber.value
+    }
     
-    const extractedData: DocumentData = {
-      firstName: 'John',
-      lastName: 'Doe',
-      dateOfBirth: '1990-01-01',
-      documentNumber: 'ABC123456',
-      issuingAuthority: 'Government',
-      issueDate: '2020-01-01',
-      expirationDate: '2030-01-01',
+    if (extractedFields.dateOfBirth?.value) {
+      data.dateOfBirth = extractedFields.dateOfBirth.value
     }
 
-    return {
-      ...document,
-      status: confidence >= 80 ? 'verified' : 'rejected',
-      verifiedAt: confidence >= 80 ? new Date() : undefined,
-      extractedData,
-      confidence,
-      rejectionReason: confidence < 80 ? 'Low confidence in document authenticity' : undefined,
+    if (extractedFields.expiryDate?.value || extractedFields.expirationDate?.value) {
+      data.expirationDate = extractedFields.expiryDate?.value || extractedFields.expirationDate?.value
     }
+
+    // Document-specific field mapping
+    switch (documentType) {
+      case 'passport':
+        if (extractedFields.surname?.value) data.lastName = extractedFields.surname.value
+        if (extractedFields.givenNames?.value) data.firstName = extractedFields.givenNames.value
+        if (extractedFields.nationality?.value) data.nationality = extractedFields.nationality.value
+        data.issuingAuthority = 'U.S. Department of State'
+        break
+
+      case 'drivers_license':
+        if (extractedFields.fullName?.value) {
+          const nameParts = extractedFields.fullName.value.split(',')
+          if (nameParts.length >= 2) {
+            data.lastName = nameParts[0].trim()
+            data.firstName = nameParts[1].trim()
+          }
+        }
+        if (extractedFields.address?.value) data.address = extractedFields.address.value
+        data.issuingAuthority = 'Department of Motor Vehicles'
+        break
+
+      case 'utility_bill':
+        if (extractedFields.customerName?.value) {
+          const nameParts = extractedFields.customerName.value.split(' ')
+          if (nameParts.length >= 2) {
+            data.firstName = nameParts[0]
+            data.lastName = nameParts.slice(1).join(' ')
+          }
+        }
+        if (extractedFields.serviceAddress?.value) data.address = extractedFields.serviceAddress.value
+        if (extractedFields.statementDate?.value) data.issueDate = extractedFields.statementDate.value
+        break
+
+      default:
+        if (extractedFields.name?.value) {
+          const nameParts = extractedFields.name.value.split(' ')
+          if (nameParts.length >= 2) {
+            data.firstName = nameParts[0]
+            data.lastName = nameParts.slice(1).join(' ')
+          }
+        }
+        if (extractedFields.date?.value) data.issueDate = extractedFields.date.value
+    }
+
+    return data
+  }
+
+  /**
+   * Format rejection reason from validation result
+   */
+  private formatRejectionReason(validation: any): string {
+    const reasons: string[] = []
+    
+    if (validation.errors?.length > 0) {
+      reasons.push(...validation.errors)
+    }
+    
+    if (validation.confidence < 80) {
+      reasons.push(`Low confidence score: ${validation.confidence}%`)
+    }
+
+    return reasons.length > 0 ? reasons.join('; ') : 'Document validation failed'
   }
 
   private async processBiometric(biometric: BiometricData, data: any): Promise<BiometricData> {
