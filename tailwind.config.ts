@@ -33,6 +33,7 @@ const config: Config = {
 			poppins: ['var(--font-poppins)'],
 			inter: ['var(--font-inter)'],
 			geist: ['var(--font-geist-sans)'],
+			grotesk: ['var(--font-space-grotesk)'],
 		  },		  		
   		colors: {
   			background: 'hsl(var(--background))',
