@@ -1,62 +1,10 @@
 "use client";
-import { ReactNode, forwardRef, ComponentPropsWithoutRef } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
 
 import { ModeToggle } from "./moon";
-import {
-  NavigationMenu,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
-
 import MobileMenu from "./ui/mobile-menu";
-const NavItem = ({
-  href,
-  target = "_self",
-  children,
-}: {
-  href: string;
-  target?: React.HTMLAttributeAnchorTarget;
-  children: ReactNode;
-}) => (
-  <NavigationMenuLink
-    asChild
-    className={navigationMenuTriggerStyle()}
-    href={href}
-    target={target}
-  >
-    <Link href={href}>{children}</Link>
-  </NavigationMenuLink>
-);
-
-const ListItem = forwardRef<
-  HTMLAnchorElement,
-  ComponentPropsWithoutRef<"a"> & { title: string; href: string }
->(({ className, title, children, href, ...props }, ref) => (
-  <li>
-    <NavigationMenuLink asChild>
-      <Link
-        ref={ref}
-        href={href}
-        className={cn(
-          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-secondary-300/10 hover:text-accent-foreground focus:bg-secondary-300/10 focus:text-accent-foreground",
-          className
-        )}
-        {...props}
-      >
-        <div className="text-sm font-medium leading-none">{title}</div>
-        <p className="line-clamp-2 text-sm leading-snug text-gray-600/90 dark:text-gray-500">
-          {children}
-        </p>
-      </Link>
-    </NavigationMenuLink>
-  </li>
-));
-ListItem.displayName = "ListItem";
 export function NavBar() {
   return (
     <header className="fixed left-0 right-0 top-0 z-50 p-4 transition-all duration-300 ease-in-out">
