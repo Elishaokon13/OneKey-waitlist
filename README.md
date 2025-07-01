@@ -169,41 +169,6 @@ npm run build
 vercel --prod
 ```
 
-### Other Platforms
-
-The site can be deployed to any platform supporting Next.js:
-- Netlify
-- Railway
-- DigitalOcean App Platform
-- AWS Amplify
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🎯 Roadmap
-
-- [ ] Backend API integration for waitlist
-- [ ] Email notification system
-- [ ] Analytics and conversion tracking
-- [ ] Additional landing page sections
-- [ ] Integration documentation
-- [ ] Developer portal
-
-## 📞 Contact
-
-- **Website**: [onekey.arihant.us](https://onekey.arihant.us)
-- **Email**: [jainari1208@gmail.com](mailto:jainari1208@gmail.com)
-- **Twitter**: [@arihantcodes](https://x.com/arihantcodes)
-- **GitHub**: [@arihantcodes](https://github.com/arihantcodes)
 
 ## 🙏 Acknowledgments
 
