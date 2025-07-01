@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import GridIllustration from "./ui/grid-illustration";
 import IntegrationBox from "./ui/integrationBox";
