@@ -19,7 +19,7 @@ export default function Footer() {
         </div>
 
         {/* Sections with links */}
-        {footerSections.map(({ title, links }, idx) => (
+        {/* {footerSections.map(({ title, links }, idx) => (
           <div key={idx}>
             <h5 className="font-semibold">{title}</h5>
             <ul className="mt-4 space-y-2 text-neutral-500 dark:text-neutral-400">
@@ -36,7 +36,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-        ))}
+        ))} */}
 
    
       </div>
