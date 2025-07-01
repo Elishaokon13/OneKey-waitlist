@@ -38,7 +38,13 @@ export const waitlistService = {
         })
 
       if (error) {
-        console.error('Supabase insert error:', error)
+        console.error('Supabase insert error:', {
+          message: error.message,
+          details: error.details,
+          hint: error.hint,
+          code: error.code,
+          full_error: JSON.stringify(error, null, 2)
+        })
         return { 
           success: false, 
           error: 'Failed to save email' 
