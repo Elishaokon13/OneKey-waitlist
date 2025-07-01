@@ -231,12 +231,12 @@ export default function WaitlistModal({ children }: WaitlistModalProps) {
         {/* Submit Button with Enhanced Design */}
         <Button 
           type="submit" 
-          className="w-full h-12 bg-gradient-to-r from-primary to-teal-600 hover:from-primary/90 hover:to-teal-600/90 text-white font-semibold text-base rounded-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl"
+          className="w-full h-12 bg-gradient-to-r from-primary to-teal-600 hover:from-primary/90 hover:to-teal-600/90 text-white font-semibold text-base rounded-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl flex items-center justify-center"
           disabled={isLoading}
         >
           {isLoading ? (
             <motion.div 
-              className="flex items-center gap-2"
+              className="flex items-center justify-center gap-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
@@ -245,7 +245,7 @@ export default function WaitlistModal({ children }: WaitlistModalProps) {
             </motion.div>
           ) : (
             <motion.div 
-              className="flex items-center gap-2"
+              className="flex items-center justify-center gap-2"
               whileHover={{ gap: "12px" }}
               transition={{ duration: 0.2 }}
             >
