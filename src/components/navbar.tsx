@@ -12,7 +12,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import AuthButton from "./ui/authbutton";
+
 import MobileMenu from "./ui/mobile-menu";
 const NavItem = ({
   href,
