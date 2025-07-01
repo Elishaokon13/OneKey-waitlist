@@ -138,7 +138,7 @@ export const siteConfig = {
   url: "https://onekey.arihant.us",
   ogImage: "https://onekey.arihant.us/og.png",
   links: {
-    twitter: "https://x.com/arihantcodes",
+    twitter: "https://x.com/defidevrel",
     github: "https://github.com/arihantcodes"
   }
 }
