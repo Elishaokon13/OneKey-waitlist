@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { Button } from "./button";
-import { LogIn,  Menu,  SquareArrowRight } from "lucide-react";
+import { Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -24,26 +23,6 @@ export default function MobileMenu() {
     setMounted(true);
   }, []);
 
-  const MobileNavItem = ({
-    href,
-    onClick,
-    children,
-  }: {
-    href: string;
-    onClick: () => void;
-    children: React.ReactNode;
-  }) => (
-    <li>
-      <Link
-        href={href}
-        className="block rounded-md py-4 text-base font-medium text-foreground"
-        onClick={onClick}
-      >
-        {children}
-      </Link>
-    </li>
-  );
-
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
@@ -62,39 +41,12 @@ export default function MobileMenu() {
       >
         <div>
           <SheetHeader className="mb-4">
-            <SheetTitle className="text-center">OneKey Menu</SheetTitle>
+            <SheetTitle className="text-center">OneKey</SheetTitle>
           </SheetHeader>
-          <nav aria-label="Mobile menu">
-            <ul className="space-y-1">
-              <div className="mb-4 space-y-4">
-                <Link href="/signin" onClick={() => setIsOpen(false)}>
-                  <Button variant="outline" className="w-full justify-start">
-                    <LogIn className="mr-2 h-4 w-4" />
-                    Sign in
-                  </Button>
-                </Link>
-                <Link href="/signup" onClick={() => setIsOpen(false)}>
-                  <Button
-                    variant="outline"
-                    className="mt-4 w-full justify-start"
-                  >
-                    <SquareArrowRight className="mr-2 h-4 w-4" />
-                    Try OneKey
-                  </Button>
-                </Link>
-              </div>
-              <MobileNavItem href="/scroll" onClick={() => setIsOpen(false)}>
-                SCROLL
-              </MobileNavItem>
-
-              <MobileNavItem href="/gig" onClick={() => setIsOpen(false)}>
-                GIG
-              </MobileNavItem>
-              <MobileNavItem href="/pitchroom" onClick={() => setIsOpen(false)}>
-                PITCHROOM
-              </MobileNavItem>
-            </ul>
-          </nav>
+          <div className="text-center text-gray-600 dark:text-gray-400">
+            <p>Identity verification platform</p>
+            <p className="text-sm mt-2">Coming soon...</p>
+          </div>
         </div>
         <div className="width-full space-y-4 pb-6">
           <div className="width-full">
@@ -106,12 +58,12 @@ export default function MobileMenu() {
               >
                 {theme === "light" ? (
                   <>
-                    <Sun strokeWidth={1} className="h-5 w-5" />
+                    <Sun strokeWidth={1} className="h-5 w-5 mr-2" />
                     Light
                   </>
                 ) : (
                   <>
-                    <MoonStar strokeWidth={1} className="h-5 w-5" />
+                    <MoonStar strokeWidth={1} className="h-5 w-5 mr-2" />
                     Dark
                   </>
                 )}
