@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -25,7 +25,15 @@ export default function WaitlistModal({ children }: WaitlistModalProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [userAgent, setUserAgent] = useState<string>("Unknown");
   const { toast } = useToast();
+
+  // Safely get user agent only on client side to prevent hydration mismatch
+  useEffect(() => {
+    if (typeof window !== 'undefined' && navigator?.userAgent) {
+      setUserAgent(navigator.userAgent);
+    }
+  }, []);
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -56,8 +64,8 @@ export default function WaitlistModal({ children }: WaitlistModalProps) {
     setIsLoading(true);
 
     try {
-      // Save email to Supabase database
-      const result = await waitlistService.addEmail(email, navigator.userAgent);
+      // Save email to Supabase database with safely obtained user agent
+      const result = await waitlistService.addEmail(email, userAgent);
       
       if (!result.success) {
         toast({
