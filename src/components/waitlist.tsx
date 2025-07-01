@@ -56,25 +56,36 @@ export default function WaitlistModal({ children }: WaitlistModalProps) {
     setIsLoading(true);
 
     try {
-      // Simulate API call - replace with actual implementation
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Save email to Supabase database
+      const result = await waitlistService.addEmail(email, navigator.userAgent);
       
-      // DEMO STORAGE: Currently using localStorage - see README for production options
-      const waitlistEmails = JSON.parse(localStorage.getItem('onekey-waitlist') || '[]');
-      const emailEntry = {
-        email,
-        timestamp: new Date().toISOString(),
-        userAgent: navigator.userAgent
-      };
-      
-      if (!waitlistEmails.some((entry: any) => entry.email === email)) {
-        waitlistEmails.push(emailEntry);
-        localStorage.setItem('onekey-waitlist', JSON.stringify(waitlistEmails));
-        console.log('📧 Waitlist email saved:', emailEntry);
-        console.log('📊 Total waitlist emails:', waitlistEmails.length);
+      if (!result.success) {
+        toast({
+          title: result.error === 'Email already registered' ? "Already registered" : "Error",
+          description: result.error === 'Email already registered' 
+            ? "This email is already on the waitlist." 
+            : result.error || "Please try again later.",
+          variant: result.error === 'Email already registered' ? "default" : "destructive",
+        });
+        
+        if (result.error === 'Email already registered') {
+          // Still show success for already registered emails
+          setIsSuccess(true);
+          setTimeout(() => {
+            setIsOpen(false);
+            setTimeout(() => {
+              setIsSuccess(false);
+              setEmail("");
+            }, 300);
+          }, 2000);
+        }
+        return;
       }
 
+      // Success! Email saved to Supabase
       setIsSuccess(true);
+      console.log('✅ Email successfully saved to Supabase:', email);
+      
       toast({
         title: "Welcome to the waitlist! 🎉",
         description: "We'll notify you when OneKey launches.",
@@ -91,9 +102,10 @@ export default function WaitlistModal({ children }: WaitlistModalProps) {
       }, 2000);
       
     } catch (error) {
+      console.error('Waitlist signup error:', error);
       toast({
-        title: "Something went wrong",
-        description: "Please try again later.",
+        title: "Connection error",
+        description: "Please check your internet connection and try again.",
         variant: "destructive",
       });
     } finally {
