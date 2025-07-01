@@ -17,7 +17,7 @@
 ## 🧱 Codebase Structure
 
 ```
-kyc-api-mvp/
+Onekey api/
 ├── api/                      # REST API (Node.js / TypeScript)
 │   ├── routes/
 │   ├── controllers/
