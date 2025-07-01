@@ -215,17 +215,15 @@ export default function WaitlistModal({ children }: WaitlistModalProps) {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Email Input with Gradient Border */}
         <div className="relative">
-          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/20 via-teal-500/20 to-primary/20 p-[1px]">
-            <Input
-              type="email"
-              placeholder="Enter your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full h-12 bg-background border-0 rounded-lg px-4 text-base focus:ring-2 focus:ring-primary/50 transition-all duration-200"
-              disabled={isLoading}
-              autoFocus
-            />
-          </div>
+          <Input
+            type="email"
+            placeholder="Enter your email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full h-12 bg-background border border-primary/30 rounded-lg px-4 text-base focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200"
+            disabled={isLoading}
+            autoFocus
+          />
         </div>
         
         {/* Submit Button with Enhanced Design */}
