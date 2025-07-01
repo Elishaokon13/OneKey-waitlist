@@ -13,7 +13,7 @@ export const siteConfig = {
       github: "https://github.com/elishaokon13",
       linkedin: "https://www.linkedin.com/in/elishaokon13", // Update with your actual LinkedIn profile
       // Update if you have a Facebook page
-      instagram: "https://www.instagram.com/defidevre", // Update with your actual Instagram profile
+      instagram: "https://www.instagram.com/defidevrel", // Update with your actual Instagram profile
     },
     author: {
       name: "Arihant Jain",
