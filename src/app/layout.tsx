@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { ThemeProvider } from "@/components/theme-provider";
 import { Reddit_Sans as GeistSans, Poppins, Inter } from "next/font/google";
 import {} from "next/font/google";
