@@ -169,7 +169,6 @@ npm run build
 vercel --prod
 ```
 
-
 ## 🙏 Acknowledgments
 
 - Design inspiration from modern SaaS platforms
