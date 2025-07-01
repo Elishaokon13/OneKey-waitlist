@@ -207,7 +207,7 @@ export const footerSections = [
 export const socialMediaLinks = [
   {
     icon: GitHubLogo,
-    link: "https://github.com/",
+    link: "https://github.com/de",
   },
 
   {
