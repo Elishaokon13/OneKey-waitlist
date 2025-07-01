@@ -145,11 +145,78 @@ export const siteConfig = {
 
 ### Environment Variables
 
-Create `.env.local` for any environment-specific configuration:
+Create `.env.local` for Supabase configuration:
 
 ```bash
-# Add any future API keys or configuration here
-# Currently no environment variables required
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+## 🗄️ Supabase Database Setup
+
+### 1. Create Supabase Project
+
+1. Go to [Supabase](https://app.supabase.com)
+2. Create a new project
+3. Wait for the database to be ready
+
+### 2. Create Waitlist Table
+
+Run this SQL in the Supabase SQL Editor:
+
+```sql
+-- Create waitlist table
+CREATE TABLE waitlist (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  timestamp TIMESTAMPTZ NOT NULL,
+  user_agent TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Create index for faster email lookups
+CREATE INDEX idx_waitlist_email ON waitlist(email);
+CREATE INDEX idx_waitlist_created_at ON waitlist(created_at DESC);
+
+-- Enable Row Level Security (RLS)
+ALTER TABLE waitlist ENABLE ROW LEVEL SECURITY;
+
+-- Create policy to allow public inserts (for waitlist signup)
+CREATE POLICY "Allow public waitlist signup" ON waitlist
+  FOR INSERT WITH CHECK (true);
+
+-- Create policy to prevent public reads (only authenticated users can view)
+CREATE POLICY "Restrict waitlist viewing" ON waitlist
+  FOR SELECT USING (false);
+```
+
+### 3. Get API Keys
+
+1. Go to **Settings** → **API** in your Supabase dashboard
+2. Copy your **Project URL** and **anon** **public** key
+3. Add them to your `.env.local` file
+
+### 4. Test the Integration
+
+```bash
+# Start the development server
+npm run dev
+
+# Test waitlist signup at http://localhost:3000
+# Check Supabase dashboard → Table Editor → waitlist
+```
+
+### 5. View Waitlist Emails
+
+You can view all waitlist emails in the Supabase dashboard:
+- Go to **Table Editor** → **waitlist**
+- Or run this SQL query:
+
+```sql
+SELECT email, created_at, user_agent 
+FROM waitlist 
+ORDER BY created_at DESC;
 ```
 
 ## 📊 SEO & Performance
