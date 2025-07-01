@@ -30,6 +30,7 @@ This is the **landing page and waitlist** for the OneKey platform. The site feat
 
 - **Framework**: [Next.js 15](https://nextjs.org/) with App Router
 - **Language**: TypeScript
+- **Database**: [Supabase](https://supabase.com/) - PostgreSQL with real-time features
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Icons**: [Lucide React](https://lucide.dev/)
