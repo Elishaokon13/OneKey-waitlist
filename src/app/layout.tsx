@@ -63,7 +63,7 @@ export const metadata: Metadata = {
       url: siteConfig.author.url,
     },
   ],
-  creator: "Arihant Jain & Aman Jain",
+  creator: "Def",
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
