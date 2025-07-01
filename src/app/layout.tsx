@@ -65,7 +65,7 @@ export const metadata: Metadata = {
       "verification platform",
       "identity security",
       "data privacy",
-      "user privacy"
+      "user privacy",
     ...siteConfig.keywords,
   ],
   authors: [
