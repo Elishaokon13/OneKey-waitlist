@@ -1,4 +1,4 @@
 node_modules
 run.sh
 auto-commit.sh
-.next
+.cursor/
