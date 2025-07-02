@@ -1,4 +1,4 @@
-import { footerSections, socialMediaLinks } from "@/lib/constant";
+import {  socialMediaLinks } from "@/lib/constant";
 import Link from "next/link";
 
 import { Button } from "./ui/button";
