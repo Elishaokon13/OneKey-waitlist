@@ -381,4 +381,93 @@ export const ContinueLogo: FC<ComponentProps<"svg"> & { color?: string }> = ({
   </svg>
 );
 
+export const SmileIDLogo: FC<ComponentProps<"svg">> = (props) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="text-emerald-600 dark:text-emerald-400"
+    {...props}
+  >
+    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <circle cx="8" cy="9" r="1.5" fill="currentColor"/>
+    <circle cx="16" cy="9" r="1.5" fill="currentColor"/>
+    <path d="M7 15C7 15 9 17 12 17C15 17 17 15 17 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M12 2L14 4L12 6L10 4L12 2Z" fill="currentColor"/>
+  </svg>
+);
+
+export const OnfidoLogo: FC<ComponentProps<"svg">> = (props) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="text-blue-600 dark:text-blue-400"
+    {...props}
+  >
+    <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <circle cx="8" cy="9" r="2" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+    <path d="M5 16L8 13L11 16L16 11L19 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <rect x="14" y="6" width="4" height="6" rx="1" fill="currentColor" opacity="0.3"/>
+  </svg>
+);
+
+export const TrullioLogo: FC<ComponentProps<"svg">> = (props) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="text-violet-600 dark:text-violet-400"
+    {...props}
+  >
+    <path d="M12 2L22 8.5V15.5L12 22L2 15.5V8.5L12 2Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+    <path d="M12 7L16 10L12 13L8 10L12 7Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+    <path d="M7 9L12 12L17 9" stroke="currentColor" strokeWidth="1" opacity="0.6"/>
+  </svg>
+);
+
+export const EASLogo: FC<ComponentProps<"svg">> = (props) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="text-orange-600 dark:text-orange-400"
+    {...props}
+  >
+    <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <path d="M12 6V2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <circle cx="12" cy="12" r="2" fill="currentColor"/>
+    <path d="M8 12H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M18 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M9 15L7 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M15 15L17 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+export const AESLogo: FC<ComponentProps<"svg">> = (props) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="text-green-600 dark:text-green-400"
+    {...props}
+  >
+    <path d="M6 9L12 3L18 9V18C18 19.1 17.1 20 16 20H8C6.9 20 6 19.1 6 18V9Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <circle cx="12" cy="13" r="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+    <path d="M12 15V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <rect x="10" y="7" width="4" height="2" fill="currentColor" rx="1"/>
+  </svg>
+);
+
 

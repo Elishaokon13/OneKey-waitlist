@@ -22,7 +22,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative mt-24">
+      <section className="relative mt-10 lg:mt-24">
         {/* Background Dots */}
         <div className="absolute inset-0 mx-auto max-w-7xl bg-dot-light-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-dot-dark-black lg:[mask-image:radial-gradient(ellipse_at_left,transparent_20%,black)]"></div>
 

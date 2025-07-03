@@ -3,11 +3,11 @@
 import { JSX, useCallback, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import {
-  AiderLogo,
-  PerplexityLogo,
-  SupermavenLogo,
-  Mem0Logo,
-  ContinueLogo,
+  SmileIDLogo,
+  OnfidoLogo,
+  TrullioLogo,
+  EASLogo,
+  AESLogo,
 } from "./icon";
 
 interface IntegrationItemProps {
@@ -24,15 +24,15 @@ const IntegrationItem = ({
   Icon,
 }: IntegrationItemProps) => (
   <motion.div
-    className={`bg-white-50 dark:bg-gray-800 ${margin} w-fit rounded-lg border border-gray-200 px-3 py-2 dark:border-black/50`}
+    className={`bg-white dark:bg-gray-800 ${margin} w-fit rounded-lg border border-gray-200 px-3 py-2 dark:border-gray-700`}
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
   >
     <div className="flex items-center gap-2">
-      <Icon className="h-8 w-8" />
+      <Icon className="h-8 w-8 shrink-0" />
       <div className="flex flex-col text-xs">
-        <span className="text-gray-400 dark:text-gray-500">{label}</span>
-        <span className="dark:text-white font-medium text-black/60">
+        <span className="text-gray-500 dark:text-gray-400">{label}</span>
+        <span className="font-medium text-gray-900 dark:text-white">
           {product}
           <sup>*</sup>
         </span>
@@ -43,79 +43,79 @@ const IntegrationItem = ({
 
 const INTEGRATIONS = [
   {
-    margin: "lg:ml-2 mr-1 dark:bg-neutral-100",
-    label: "Ship with",
+    margin: "lg:ml-2 mr-1",
+    label: "Verify with",
     product: (
       <a
-        href="https://aider.chat/"
+        href="https://smileidentity.com/"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:underline dark:text-neutral-900"
+        className="hover:underline"
       >
-        aider
+        Smile ID
       </a>
     ),
-    Icon: AiderLogo,
+    Icon: SmileIDLogo,
   },
   {
-    margin: "lg:ml-24 ml-2 dark:bg-neutral-100",
-    label: "Predict with",
+    margin: "lg:ml-24 ml-2",
+    label: "Authenticate with",
     product: (
       <a
-        href="https://supermaven.com/"
+        href="https://onfido.com/"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:underline dark:text-neutral-900"
+        className="hover:underline"
       >
-        Supermaven
+        Onfido
       </a>
     ),
-    Icon: SupermavenLogo,
+    Icon: OnfidoLogo,
   },
   {
-    margin: "lg:ml-44 dark:bg-neutral-100",
-    label: "Remember with",
+    margin: "lg:ml-44",
+    label: "Validate with",
     product: (
       <a
-        href="https://mem0.ai/"
+        href="https://trullio.com/"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:underline dark:text-neutral-900"
+        className="hover:underline"
       >
-        MemO
+        trullio
       </a>
     ),
-    Icon: Mem0Logo,
+    Icon: TrullioLogo,
   },
   {
-    margin: "lg:ml-56 -ml-3 dark:bg-neutral-100",
-    label: "Search with",
+    margin: "lg:ml-56 -ml-3",
+    label: "Secure with",
     product: (
       <a
-        href="https://www.perplexity.ai/"
+        href="https://attest.org/"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:underline dark:text-neutral-900"
+        className="hover:underline"
       >
-        Perplexity
+        EAS
       </a>
     ),
-    Icon: PerplexityLogo,
+    Icon: EASLogo,
   },
   {
-    margin: "lg:ml-48 -mr-5 lg:mr-0 dark:bg-neutral-100",
-    label: "Chat & edit with",
+    margin: "lg:ml-48 -mr-5 lg:mr-0",
+    label: "Encrypt with",
     product: (
       <a
-        href="https://www.continue.dev/"
+        href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:underline dark:text-neutral-900"
+        className="hover:underline"
       >
-        Continue
+        AES
       </a>
     ),
-    Icon: ContinueLogo,
+    Icon: AESLogo,
   },
 ];
 
@@ -130,7 +130,7 @@ const WavyLine = ({ index }: { index: number }) => (
         "M0.5 543C0.5 377.5 140 394 140 173.01V1.5",
       ][index]
     }
-    stroke="currentColor"
+    stroke="#22c55e"
     strokeWidth="2"
     initial={{ pathLength: 0, opacity: 0 }}
     animate={{ pathLength: 1, opacity: 0.3 }}
@@ -221,12 +221,12 @@ export default function IntegrationBox() {
 
           {/* Bottom Card */}
           <motion.div
-            className={`-ml-[80px] mt-16 w-fit rounded-lg border border-gray-200 bg-white-50 px-3 py-2 dark:border-black/50 dark:bg-neutral-100`}
+            className={`-ml-[80px] mt-16 w-fit rounded-lg border border-gray-200 bg-white px-3 py-2 dark:border-gray-700 dark:bg-gray-800`}
             animate={{
               boxShadow: [
-                "0 0 0 rgba(45, 212, 191, 0)",
-                "0 0 20px rgba(45, 212, 191, 0.8)",
-                "0 0 0 rgba(45, 212, 191, 0)",
+                "0 0 0 rgba(34, 197, 94, 0)",
+                "0 0 20px rgba(34, 197, 94, 0.8)",
+                "0 0 0 rgba(34, 197, 94, 0)",
               ],
             }}
             transition={{
@@ -240,9 +240,9 @@ export default function IntegrationBox() {
                 className="flex h-7 w-7 items-center justify-center rounded-sm bg-primary-700 text-xs font-bold text-white shadow-[0_0_12px_1px] shadow-primary-700/50"
                 animate={{
                   boxShadow: [
-                    "0 0 0 rgba(45, 212, 191, 0)",
-                    "0 0 20px rgba(45, 212, 191, 0.8)",
-                    "0 0 0 rgba(45, 212, 191, 0)",
+                    "0 0 0 rgba(34, 197, 94, 0)",
+                    "0 0 20px rgba(34, 197, 94, 0.8)",
+                    "0 0 0 rgba(34, 197, 94, 0)",
                   ],
                 }}
                 transition={{
@@ -257,7 +257,7 @@ export default function IntegrationBox() {
                 <span className="text-gray-500 dark:text-gray-400">
                   1/12 Launch
                 </span>
-                <span className="dark:text-neutral-900 font-medium text-black/60">
+                <span className="font-medium text-gray-900 dark:text-white">
                   More coming soon
                 </span>
               </div>
@@ -330,10 +330,10 @@ export default function IntegrationBox() {
                   gradientUnits="userSpaceOnUse"
                   gradientTransform="translate(166.5 178) rotate(-90.1464) scale(195.73 269.231)"
                 >
-                  <stop stopColor="currentColor" stopOpacity="0.2" />
+                  <stop stopColor="#22c55e" stopOpacity="0.2" />
                   <stop
                     offset="0.893735"
-                    stopColor="currentColor"
+                    stopColor="#22c55e"
                     stopOpacity="0"
                   />
                 </radialGradient>
@@ -344,9 +344,9 @@ export default function IntegrationBox() {
                   x2="100%"
                   y2="0%"
                 >
-                  <stop offset="0%" stopColor="rgba(45, 212, 191, 0)" />
-                  <stop offset="50%" stopColor="rgba(45, 212, 191, 0.5)" />
-                  <stop offset="100%" stopColor="rgba(45, 212, 191, 0)" />
+                  <stop offset="0%" stopColor="rgba(34, 197, 94, 0)" />
+                  <stop offset="50%" stopColor="rgba(34, 197, 94, 0.5)" />
+                  <stop offset="100%" stopColor="rgba(34, 197, 94, 0)" />
                 </linearGradient>
               </defs>
             </svg>
@@ -370,12 +370,12 @@ export default function IntegrationBox() {
           {/* Bottom Card */}
           <div className="mt-20 flex w-full translate-y-2 justify-center">
             <motion.div
-              className="w-fit rounded-lg border border-gray-200 bg-white-50 px-3 py-2 dark:border-black/50 dark:bg-neutral-100"
+              className="w-fit rounded-lg border border-gray-200 bg-white px-3 py-2 dark:border-gray-700 dark:bg-gray-800"
               animate={{
                 boxShadow: [
-                  "0 0 0 rgba(45, 212, 191, 0)",
-                  "0 0 20px rgba(45, 212, 191, 0.8)",
-                  "0 0 0 rgba(45, 212, 191, 0)",
+                  "0 0 0 rgba(34, 197, 94, 0)",
+                  "0 0 20px rgba(34, 197, 94, 0.8)",
+                  "0 0 0 rgba(34, 197, 94, 0)",
                 ],
               }}
               transition={{
@@ -389,9 +389,9 @@ export default function IntegrationBox() {
                   className="flex h-7 w-7 items-center justify-center rounded-sm bg-primary-700 text-xs font-bold text-white shadow-[0_0_12px_1px] shadow-primary-700/50"
                   animate={{
                     boxShadow: [
-                      "0 0 0 rgba(45, 212, 191, 0)",
-                      "0 0 20px rgba(45, 212, 191, 0.8)",
-                      "0 0 0 rgba(45, 212, 191, 0)",
+                      "0 0 0 rgba(34, 197, 94, 0)",
+                      "0 0 20px rgba(34, 197, 94, 0.8)",
+                      "0 0 0 rgba(34, 197, 94, 0)",
                     ],
                   }}
                   transition={{
@@ -406,7 +406,7 @@ export default function IntegrationBox() {
                   <span className="text-gray-500 dark:text-gray-400">
                     1/12 Launch
                   </span>
-                  <span className="dark:text-neutral-900 font-medium text-black/60">
+                  <span className="font-medium text-gray-900 dark:text-white">
                     More coming soon
                   </span>
                 </div>
